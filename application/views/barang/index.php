@@ -12,10 +12,13 @@
     <!-- Start Page Header Right Div -->
     <div class="right">
       <div class="btn-group" role="group" aria-label="...">
-      <?php if ($profile->peran_pengguna == 'user') { ?>
-        <a href="<?= base_url('barang/create'); ?>" class="btn btn-light">Tambah</a>
+      <?php if ($profile->peran_pengguna == 'user' || $profile->peran_pengguna == 'manajemen' ) { ?>
+        <a href="<?= base_url('barang/create'); ?>" class="btn btn-info">Tambah</a>
+        <?php if ($profile->peran_pengguna == 'manajemen') {?>
+        <a href="<?= base_url('barang/pdf'); ?>" class="btn btn-info">pdf</a>
+        <?php }?>
         <?php } ?>
-        <a href="<?= base_url('barang'); ?>" class="btn btn-light"><i class="fa fa-refresh"></i></a>
+        <a href="<?= base_url('barang'); ?>" class="btn btn-link"><i class="fa fa-refresh"></i></a>
       </div>
     </div>
     <!-- End Page Header Right Div -->

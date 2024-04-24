@@ -16,6 +16,7 @@
       </div>
     </div>
     <!-- End Page Header Right Div -->
+    
 
   </div>
   <!-- End Page Header -->
@@ -44,8 +45,8 @@
                         <th>Jumlah</th>
                         <th>Status</th>
                         <th>Tanggal Pengajuan</th>
-                        <th>Pengguna</th>
-                        <?php if ($profile->peran_pengguna == 'user') { ?>
+                        <?php if ($profile->peran_pengguna == 'user' || $profile->peran_pengguna == 'manajemen')  { ?>
+                          <th>Pengguna</th>
                         <?php } ?>
                     </tr>
                 </thead>
@@ -71,7 +72,9 @@
                             </button>
                           </td>
                         <td><?= date('d-m-Y', $barang_keluar->tanggal_pengajuan); ?></td>
+                        <?php if ($profile->peran_pengguna == 'user' || $profile->peran_pengguna == 'manajemen')  { ?>
                         <td><?= $barang_keluar->nama_pengguna; ?></td>
+                        <?php } ?>
                       </tr>
                     <?php } ?>
                 </tbody>

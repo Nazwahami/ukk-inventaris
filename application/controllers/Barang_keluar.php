@@ -116,4 +116,6 @@ class Barang_keluar extends CI_Controller
         redirect('pengajuan/index/' . $id);
     }
 
+    
+
 }
